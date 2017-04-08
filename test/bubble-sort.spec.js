@@ -3,7 +3,7 @@
 const algolib = require('../index.js');
 
 describe('bubble-sort', function() {
-    it('should return emty array when empty array was passed', function() {
+    it('should return empty array when empty array was passed', function() {
         let sortedArr = algolib.bubbleSort([]);
 
         sortedArr.should.be.eql([]);
