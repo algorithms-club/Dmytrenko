@@ -13,41 +13,41 @@ describe('#linkedList', function(){
     });
 
     it('should #addLast add element to the end of list', function(){
-        let qu = new algolib.LinkedList();
+        let ll = new algolib.LinkedList();
 
-        qu.addLast(1);
-        qu.addLast(2);
-        qu.addLast(3);
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
 
-        let length = qu._length;
+        let length = ll._length;
         length.should.be.eql(3);
     });
 
     it('should #removeLast remove element from the end of list', function(){
-        let qu = new algolib.LinkedList();
+        let ll = new algolib.LinkedList();
 
-        qu.addLast(78);
-        qu.addLast(43);
-        qu.addLast(10);
-        qu.addLast(14);
-        qu.addLast(22);
-        qu.removeLast();
+        ll.addLast(78);
+        ll.addLast(43);
+        ll.addLast(10);
+        ll.addLast(14);
+        ll.addLast(22);
+        ll.removeLast();
 
-        let length = qu._length;
+        let length = ll._length;
         length.should.be.eql(4);
     });
 
     it('should #get return element by the index of it', function(){
-        let qu = new algolib.LinkedList();
+        let ll = new algolib.LinkedList();
 
-        qu.addLast(10);
-        qu.addLast(20);
-        qu.addLast(30);
-        qu.addLast(40);
-        qu.addLast(50);
-        qu.removeLast();
+        ll.addLast(10);
+        ll.addLast(20);
+        ll.addLast(30);
+        ll.addLast(40);
+        ll.addLast(50);
+        ll.removeLast();
 
-        let get = qu.get(1);
+        let get = ll.get(1);
         get.should.be.eql(10);
     })
 
