@@ -11,14 +11,6 @@ describe('#unionFind', function(){
         uf.isConnected.should.be.instanceOf(Function);
         uf.count.should.be.instanceOf(Function);
         uf.component.should.be.instanceOf(Function);
-
-        // uf.connect(3,6);
-        // uf.connect(2,4);
-        //
-        // uf.connect(9907, 5); //error
-        //
-        // uf.isConnected(2,6); //false;
-        // uf.isConnected(4,2); //true;
     })
 
     it('should #isConnected return false if not connected', function(){
@@ -32,8 +24,12 @@ describe('#unionFind', function(){
         let uf = new algolib.UnionFind();
 
         uf.connect(3,6);
+        uf.connect(2,4);
+        uf.connect(100,8);
+        uf.connect(16,34);
+        uf.connect(16,35);
 
-        let isElementConnected = uf.isConnected(3,6);
+        let isElementConnected = uf.isConnected(34,35);
         isElementConnected.should.be.true();
     })
 
@@ -41,19 +37,26 @@ describe('#unionFind', function(){
         let uf = new algolib.UnionFind();
 
         uf.connect(3,6);
-        uf.connect(4,5);
+        uf.connect(2,4);
+        uf.connect(100,8);
+        uf.connect(16,34);
+        uf.connect(16,35);
 
         let countOfComponents = uf.count();
-        countOfComponents.should.be.eql(2);
+        countOfComponents.should.be.eql(4);
     })
 
     it('should #component return value of the component', function () {
         let uf = new algolib.UnionFind();
 
         uf.connect(3,6);
+        uf.connect(2,4);
+        uf.connect(100,8);
+        uf.connect(16,34);
+        uf.connect(16,35);
 
-        let valueOfComponent = uf.component(3);
-        valueOfComponent.should.be.eql(6);
+        let valueOfComponent = uf.component(100);
+        valueOfComponent.should.be.eql(8);
     })
 })
 
