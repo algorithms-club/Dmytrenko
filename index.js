@@ -14,6 +14,6 @@ let algolib = {
     coverByDominoes,
     UnionFind,
     QuickUnion
-}
+};
 
 module.exports = algolib;

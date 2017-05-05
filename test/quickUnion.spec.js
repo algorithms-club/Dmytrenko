@@ -12,14 +12,14 @@ describe('#quickUnion', function(){
         qu.count.should.be.instanceOf(Function);
         qu.component.should.be.instanceOf(Function);
 
-    })
+    });
 
     it('should #isConnected return false if not connected', function(){
         let qu = new algolib.QuickUnion();
 
         let isElementConnected = qu.isConnected(3,4);
         isElementConnected.should.be.false();
-    })
+    });
 
     it('should #isConnected return true if elements are connected', function () {
         let qu = new algolib.QuickUnion();
@@ -32,7 +32,7 @@ describe('#quickUnion', function(){
 
         let isElementConnected = qu.isConnected(1,4);
         isElementConnected.should.be.true();
-    })
+    });
 
     it('should #count return count of components', function () {
         let qu = new algolib.QuickUnion();
@@ -45,7 +45,7 @@ describe('#quickUnion', function(){
 
         let countOfComponents = qu.count();
         countOfComponents.should.be.eql(2);
-    })
+    });
 
     it('should #component return value of the component', function () {
         let qu = new algolib.QuickUnion();
