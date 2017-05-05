@@ -8,7 +8,7 @@ let UnionFind = require('./entry-test/unionFind');
 
 let algolib = {
     bubbleSort,
-	coverByTile,
+	  coverByTile,
     nextRound,
     coverByDominoes,
     UnionFind
