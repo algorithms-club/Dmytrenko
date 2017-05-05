@@ -12,6 +12,6 @@ let algolib = {
     nextRound,
     coverByDominoes,
     QuickUnion
-}
+};
 
 module.exports = algolib;
