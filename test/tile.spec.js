@@ -18,7 +18,7 @@ describe('#coverByTile', function(){
 	
 	});
 
-})
+});
 	
 		
 		
