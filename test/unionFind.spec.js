@@ -58,7 +58,7 @@ describe('#unionFind', function(){
         let valueOfComponent = uf.component(100);
         valueOfComponent.should.be.eql(8);
     })
-})
+});
 
 
 

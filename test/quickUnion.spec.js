@@ -59,7 +59,7 @@ describe('#quickUnion', function(){
         let valueOfComponent = qu.component(16);
         valueOfComponent.should.be.eql(35);
     })
-})
+});
 
 
 

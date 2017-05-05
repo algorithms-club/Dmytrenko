@@ -21,4 +21,4 @@ describe('bubble-sort', function() {
         sortedArr.should.be.eql([1, 2, 3, 3, 4, 5, 6, 7]);
     })
 
-})
+});

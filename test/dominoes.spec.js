@@ -18,7 +18,7 @@ describe('#coverByDominoes', function(){
 
     });
 
-})
+});
 
 
 
