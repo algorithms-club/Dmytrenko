@@ -23,8 +23,6 @@ class QuickUnion {
         let lengthOfA = this._lengthOfTree;
         let rootB = findRoot(this._elements[b], this._elements);
         let lengthOfB = this._lengthOfTree;
-        console.log(rootA);
-        console.log(rootB);
 
         if (lengthOfA >= lengthOfB) {
             this._elements[rootA] = rootB;
@@ -44,7 +42,6 @@ class QuickUnion {
             }
         }
 
-        console.log(this._roots);
     }
 
     isConnected(a, b) {

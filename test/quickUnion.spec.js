@@ -9,16 +9,9 @@ describe('#quickUnion', function(){
 
         qu.connect.should.be.instanceOf(Function);
         qu.isConnected.should.be.instanceOf(Function);
-        // qu.count.should.be.instanceOf(Function);
-        // qu.component.should.be.instanceOf(Function);
+        qu.count.should.be.instanceOf(Function);
+        qu.component.should.be.instanceOf(Function);
 
-        // uf.connect(3,6);
-        // uf.connect(2,4);
-        //
-        // uf.connect(9907, 5); //error
-        //
-        // uf.isConnected(2,6); //false;
-        // uf.isConnected(4,2); //true;
     })
 
     it('should #isConnected return false if not connected', function(){
@@ -58,9 +51,13 @@ describe('#quickUnion', function(){
         let qu = new algolib.QuickUnion();
 
         qu.connect(3,6);
+        qu.connect(2,4);
+        qu.connect(100,8);
+        qu.connect(16,34);
+        qu.connect(16,35);
 
-        let valueOfComponent = qu.component(3);
-        valueOfComponent.should.be.eql(6);
+        let valueOfComponent = qu.component(16);
+        valueOfComponent.should.be.eql(35);
     })
 })
 
