@@ -13,7 +13,7 @@ describe('#linkedList', function(){
         list.removeFirst.should.be.instanceOf(Function);
     });
 
-    it('should #addLast return value of the last added element', function(){
+    it('should #addLast return values of all added elements', function(){
         let list = new algolib.LinkedList();
 
         list.addLast(13);
@@ -24,6 +24,18 @@ describe('#linkedList', function(){
 
         let lastAddedElementValue = list.elements.lastElement.value;
         lastAddedElementValue.should.be.eql(77);
+
+        let fourthAddedElementValue = list.elements.lastElement.prev.value;
+        fourthAddedElementValue.should.be.eql(100);
+
+        let thirdAddedElementValue = list.elements.lastElement.prev.prev.value;
+        thirdAddedElementValue.should.be.eql(99);
+
+        let secondAddedElementValue = list.elements.lastElement.prev.prev.prev.value;
+        secondAddedElementValue.should.be.eql(67);
+
+        let firstAddedElementValue = list.elements.lastElement.prev.prev.prev.prev.value;
+        firstAddedElementValue.should.be.eql(13);
     });
 
     it('should #removeLast remove element from the end of elements, return it and also return new last element', function(){
@@ -45,7 +57,7 @@ describe('#linkedList', function(){
         newLastElement.should.be.eql(777);
     });
 
-    it('should #addFirst return value of the first added element', function(){
+    it('should #addFirst return values of all added elements', function(){
         let list = new algolib.LinkedList();
 
         list.addFirst(10);
@@ -54,8 +66,19 @@ describe('#linkedList', function(){
         list.addFirst(40);
         list.addFirst(50);
 
+        let lastAddedElementValue = list.elements.firstElement.value;
+        lastAddedElementValue.should.be.eql(50);
 
-        let firstAddedElementValue = list.elements.lastElement.value;
+        let fourthAddedElementValue = list.elements.firstElement.next.value;
+        fourthAddedElementValue.should.be.eql(40);
+
+        let thirdAddedElementValue = list.elements.firstElement.next.next.value;
+        thirdAddedElementValue.should.be.eql(30);
+
+        let secondAddedElementValue = list.elements.firstElement.next.next.next.value;
+        secondAddedElementValue.should.be.eql(99);
+
+        let firstAddedElementValue = list.elements.firstElement.next.next.next.next.value;
         firstAddedElementValue.should.be.eql(10);
     });
 
@@ -89,12 +112,21 @@ describe('#linkedList', function(){
         list.removeLast();
         list.removeFirst();
         list.removeLast();
+        list.addFirst(22);
+        list.addLast(33);
+        list.removeFirst();
 
         let length = list._length;
-        length.should.be.eql(2);
+        length.should.be.eql(3);
 
-        let lastAddedElementValue = list.elements.lastElement.value;
-        lastAddedElementValue.should.be.eql(99);
+        let lastElementValue = list.elements.lastElement.value;
+        lastElementValue.should.be.eql(33);
+
+        let firstElementValue = list.elements.firstElement.value;
+        firstElementValue.should.be.eql(10);
+
+        let secondElementValue = list.elements.firstElement.next.value;
+        secondElementValue.should.be.eql(99);
     })
 
 });

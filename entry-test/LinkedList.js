@@ -5,8 +5,8 @@ class LinkedList {
     constructor() {
         this._length = 0;
         this.elements = {};
-        this.elementKeyCounterForPush = 1;
-        this.elementKeyCounterForPop = -1;
+        this._pushCounter = 1;
+        this._popCounter = -1;
     }
 
     addLast(element) {
@@ -25,11 +25,11 @@ class LinkedList {
             this.elements.firstElement.next = this.elements.lastElement;
             this.elements.firstElement.prev = null;
         } else {
-            this.elements[this.elementKeyCounterForPush] = this.elements.lastElement;
+            this.elements[this._pushCounter] = this.elements.lastElement;
             this.elements.lastElement = newObj;
-            this.elements[this.elementKeyCounterForPush].next = this.elements.lastElement;
-            this.elements.lastElement.prev = this.elements[this.elementKeyCounterForPush];
-            this.elementKeyCounterForPush++;
+            this.elements[this._pushCounter].next = this.elements.lastElement;
+            this.elements.lastElement.prev = this.elements[this._pushCounter];
+            this._pushCounter++;
         }
         this._length++;
         return this.elements.lastElement;
@@ -40,12 +40,12 @@ class LinkedList {
         let removedElement = this.elements.lastElement.value;
         this.elements.lastElement = this.elements.lastElement.prev;
         this.elements.lastElement.next = null;
-        if (this.elementKeyCounterForPush === 0 && this.elements[this.elementKeyCounterForPush] !== null) {
-            delete this.elements[this.elementKeyCounterForPush];
-        } else if (this.elementKeyCounterForPush > 0 && this.elements[this.elementKeyCounterForPush] !== null) {
-            delete this.elements[--this.elementKeyCounterForPush];
+        if (this._pushCounter === 0 && this.elements[this._pushCounter] !== null) {
+            delete this.elements[this._pushCounter];
+        } else if (this._pushCounter > 0 && this.elements[this._pushCounter] !== null) {
+            delete this.elements[--this._pushCounter];
         } else {
-            for(let i = -1; i > this.elementKeyCounterForPop;i--){
+            for(let i = -1; i > this._popCounter; i--){
                 if(this.elements[i] === null){
                     continue;
                 }
@@ -73,11 +73,11 @@ class LinkedList {
             this.elements.lastElement.prev = this.elements.firstElement;
             this.elements.lastElement.next = null;
         } else {
-            this.elements[this.elementKeyCounterForPop] = this.elements.firstElement;
+            this.elements[this._popCounter] = this.elements.firstElement;
             this.elements.firstElement = newObj;
-            this.elements[this.elementKeyCounterForPop].prev = this.elements.firstElement;
-            this.elements.firstElement.next = this.elements[this.elementKeyCounterForPop];
-            this.elementKeyCounterForPop--;
+            this.elements[this._popCounter].prev = this.elements.firstElement;
+            this.elements.firstElement.next = this.elements[this._popCounter];
+            this._popCounter--;
         }
         this._length++;
         return this.elements.firstElement;
@@ -88,12 +88,12 @@ class LinkedList {
         let removedElement = this.elements.firstElement.value;
         this.elements.firstElement = this.elements.firstElement.next;
         this.elements.firstElement.prev = null;
-        if (this.elementKeyCounterForPop === -1 && this.elements[this.elementKeyCounterForPop] !== null) {
-            delete this.elements[this.elementKeyCounterForPop];
-        } else if (this.elementKeyCounterForPop < -1 && this.elements[this.elementKeyCounterForPop] !== null) {
-            delete this.elements[++this.elementKeyCounterForPop];
+        if (this._popCounter === -1 && this.elements[this._popCounter] !== null) {
+            delete this.elements[this._popCounter];
+        } else if (this._popCounter < -1 && this.elements[this._popCounter] !== null) {
+            delete this.elements[++this._popCounter];
         } else {
-            for(let i = 0; i < this.elementKeyCounterForPush;i++){
+            for(let i = 0; i < this._pushCounter; i++){
                 if(this.elements[i] === null){
                     continue;
                 }
