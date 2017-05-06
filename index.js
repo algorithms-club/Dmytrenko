@@ -9,6 +9,9 @@ let QuickUnion = require('./entry-test/quickUnion');
 let selectionSort = require('./entry-test/selectionSort');
 let insertionSort = require('./entry-test/insertionSort');
 let shellSort = require('./entry-test/shellSort');
+let shuffleCollection = require('./entry-test/shuffleCollection');
+let isSorted = require('./entry-test/isSorted');
+let compareNumbers = require('./entry-test/compareNumbers');
 
 let algolib = {
     bubbleSort,
@@ -19,7 +22,10 @@ let algolib = {
     QuickUnion,
     selectionSort,
     insertionSort,
-    shellSort
+    shellSort,
+    shuffleCollection,
+    isSorted,
+    compareNumbers
 };
 
 module.exports = algolib;
