@@ -8,12 +8,16 @@ function shellSort(collection, comparison) {
 
     let interval = Math.floor(collection.length / 2);
 
-    for (let i = interval; i > 0; i--) {
-        for (let j = 0; j + i - 1 < collection.length; j++) {
-            if (comparison(collection[j + i - 1], collection[j])) {
-                let tmpValue = collection[j];
-                collection[j] = collection[j + i - 1];
-                collection[j + i - 1] = tmpValue;
+    for (let i = interval; i; i = Math.floor(i / 2)) {
+        for (let j = 0; j + i < collection.length; j++) {
+            for (let k = j + i; j >= 0; k -= i, j -= i) {
+                if (comparison(collection[k], collection[j])) {
+                    let tmpValue = collection[j];
+                    collection[j] = collection[k];
+                    collection[k] = tmpValue;
+                } else {
+                    break;
+                }
             }
         }
     }

@@ -2,20 +2,22 @@
 
 const algolib = require('../index.js');
 
-describe('#shellSort', function(){
+describe('#shellSort', function () {
 
-    it('should return empty array if the same array put in parameters', function(){
+    it('should return empty array if the same array put in parameters', function () {
         let shellSort = algolib.shellSort([], algolib.compareNumbers);
 
         shellSort.should.be.eql([]);
 
     });
 
-    it('should return sorted array', function(){
+    it('should shuffle collection and then check, that it is sorted after function #shellSort', function () {
 
-        let shellSort = algolib.shellSort([71, 10, 9, 2, 88, 1, 7, 101, 4, 4, 5, 1, 205], algolib.compareNumbers);
+        let shuffle = algolib.shuffleCollection([71, 10, 9, 2, 88, 1, 7, 101, 4, 4, 5, 1, 205]);
+        let shellSort = algolib.selectionSort(shuffle, algolib.compareNumbers);
+        let sort = algolib.isSorted(shellSort, algolib.compareNumbers);
 
-        shellSort.should.be.eql([1, 1, 2, 4, 4, 5, 7, 9, 10, 71, 88, 101, 205]);
+        sort.should.be.eql(true);
 
     });
 

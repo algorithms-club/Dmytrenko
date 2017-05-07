@@ -12,6 +12,7 @@ let shellSort = require('./entry-test/shellSort');
 let shuffleCollection = require('./entry-test/shuffleCollection');
 let isSorted = require('./entry-test/isSorted');
 let compareNumbers = require('./entry-test/compareNumbers');
+let combSort = require('./entry-test/combSort');
 
 let algolib = {
     bubbleSort,
@@ -25,7 +26,8 @@ let algolib = {
     shellSort,
     shuffleCollection,
     isSorted,
-    compareNumbers
+    compareNumbers,
+    combSort
 };
 
 module.exports = algolib;
