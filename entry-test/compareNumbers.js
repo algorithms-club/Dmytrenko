@@ -1,7 +1,14 @@
 'use strict';
 
-function compareNumbers (a, b) {
-    return a < b;
+class Comparison {
+
+    compareNumbers(a, b) {
+        if (typeof Comparison.countOfOperations === "undefined") {
+            Comparison.countOfOperations = 0;
+        }
+        Comparison.countOfOperations++;
+        return a < b;
+    }
 }
 
-module.exports = compareNumbers;
+module.exports = Comparison;
