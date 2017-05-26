@@ -2,7 +2,7 @@
 
 const algolib = require('../index.js');
 
-describe('#quickSort', function () {
+describe('#heapSort', function () {
 
     it('should return empty array if the same array put in parameters', function () {
         let quickSort = algolib.quickSort([], algolib.compareNumbers);
@@ -11,7 +11,7 @@ describe('#quickSort', function () {
 
     });
 
-    it('should shuffle collection and then check, that it is sorted after function #quickSort', function () {
+    it('should shuffle collection and then check, that it is sorted after function #heapSort', function () {
 
         let collection = [];
         for (let i = -5000; i < 5000; i++) {
@@ -20,11 +20,12 @@ describe('#quickSort', function () {
 
         let compare = new algolib.Comparison();
         let shuffle = algolib.shuffleCollection(collection);
-        console.time("#quickSort completed at");
-        let quickSort = algolib.quickSort(shuffle, compare.compareNumbers);
-        console.timeEnd("#quickSort completed at");
-        let sort = algolib.isSorted(quickSort, compare.compareNumbers);
-        console.log("#quickSort had " + algolib.Comparison.countOfOperations +
+        console.time("#heapSort completed at");
+        let binaryHeap = new algolib.BinaryHeap(shuffle, compare.compareNumbers);
+        let heapSort = algolib.heapSort(binaryHeap, compare.compareNumbers);
+        console.timeEnd("#heapSort completed at");
+        let sort = algolib.isSorted(heapSort, compare.compareNumbers);
+        console.log("#heapSort had " + algolib.Comparison.countOfOperations +
             " compare operations for array of " + collection.length + " elements.");
         algolib.Comparison.countOfOperations = 0;
 
