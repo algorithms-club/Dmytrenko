@@ -17,6 +17,7 @@ describe('#heapSort', function () {
         for (let i = -5000; i < 5000; i++) {
             collection.push(i);
         }
+        let length = collection.length;
 
         let compare = new algolib.Comparison();
         let shuffle = algolib.shuffleCollection(collection);
@@ -26,7 +27,7 @@ describe('#heapSort', function () {
         console.timeEnd("#heapSort completed at");
         let sort = algolib.isSorted(heapSort, compare.compareNumbers);
         console.log("#heapSort had " + algolib.Comparison.countOfOperations +
-            " compare operations for array of " + collection.length + " elements.");
+            " compare operations for array of " + length + " elements.");
         algolib.Comparison.countOfOperations = 0;
 
         sort.should.be.eql(true);
