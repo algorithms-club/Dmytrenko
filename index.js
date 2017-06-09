@@ -11,12 +11,16 @@ let insertionSort = require('./entry-test/insertionSort');
 let shellSort = require('./entry-test/shellSort');
 let shuffleCollection = require('./entry-test/shuffleCollection');
 let isSorted = require('./entry-test/isSorted');
-let compareNumbers = require('./entry-test/compareNumbers');
+let Comparison = require('./entry-test/compareNumbers');
 let combSort = require('./entry-test/combSort');
+let mergeSort = require('./entry-test/mergeSort');
+let quickSort = require('./entry-test/quickSort');
+let BinaryHeap = require('./entry-test/binaryHeap');
+let heapSort = require('./entry-test/heapSort');
 
 let algolib = {
     bubbleSort,
-	  coverByTile,
+    coverByTile,
     nextRound,
     coverByDominoes,
     UnionFind,
@@ -26,8 +30,12 @@ let algolib = {
     shellSort,
     shuffleCollection,
     isSorted,
-    compareNumbers,
-    combSort
+    Comparison,
+    combSort,
+    mergeSort,
+    quickSort,
+    BinaryHeap,
+    heapSort
 };
 
 module.exports = algolib;

@@ -13,9 +13,20 @@ describe('#combSort', function () {
 
     it('should shuffle collection and then check, that it is sorted after function #combSort', function () {
 
-        let shuffle = algolib.shuffleCollection([71, 10, 9, 2, 88, 1, 7, 101, 4, 4, 5, 1, 205]);
-        let combSort = algolib.combSort(shuffle, algolib.compareNumbers);
-        let sort = algolib.isSorted(combSort, algolib.compareNumbers);
+        let collection = [];
+        for (let i = -5000; i < 5000; i++) {
+            collection.push(i);
+        }
+
+        let compare = new algolib.Comparison();
+        let shuffle = algolib.shuffleCollection(collection);
+        console.time("#combSort completed at");
+        let combSort = algolib.combSort(shuffle, compare.compareNumbers);
+        console.timeEnd("#combSort completed at");
+        let sort = algolib.isSorted(combSort, compare.compareNumbers);
+        console.log("#combSort had " + algolib.Comparison.countOfOperations +
+            " compare operations for array of " + collection.length + " elements.");
+        algolib.Comparison.countOfOperations = 0;
 
         sort.should.be.eql(true);
 
