@@ -17,6 +17,7 @@ let mergeSort = require('./entry-test/mergeSort');
 let quickSort = require('./entry-test/quickSort');
 let BinaryHeap = require('./entry-test/binaryHeap');
 let heapSort = require('./entry-test/heapSort');
+let BinarySearchTree = require('./entry-test/BinarySearchTree');
 
 let algolib = {
     bubbleSort,
@@ -35,7 +36,8 @@ let algolib = {
     mergeSort,
     quickSort,
     BinaryHeap,
-    heapSort
+    heapSort,
+    BinarySearchTree
 };
 
 module.exports = algolib;
