@@ -31,30 +31,39 @@ class BinarySearchTree {
     }
 
     remove(value) {
-        if (value === this._elements.value) {
-            if (!this._elements.right && !this._elements.left) {
-                this._elements.value = undefined;
-            } else if (this._elements.right && !this._elements.left) {
-                this._elements = this._elements.right;
-            } else if (!this._elements.right && this._elements.left) {
-                this._elements = this._elements.left;
-            } else {
-                this._elements.value = this._elements.right._elements.value;
-                if (this._elements.right._elements.left) {
-                    this._elements.left.add(this._elements.right._elements.left._elements.value);
-                }
-                this._elements.right = this._elements.right._elements.right;
-            }
+        if (this._elements.right && value === this._elements.right._elements.value &&
+            !this._elements.right._elements.left && !this._elements.right._elements.right) {
+            let removed = this._elements.right._elements.value;
+            this._elements.right = undefined;
+            this._elements.size--;
+            return removed;
+        } else if (this._elements.left && value === this._elements.left._elements.value &&
+            !this._elements.left._elements.left && !this._elements.left._elements.right) {
+            let removed = this._elements.left._elements.value;
+            this._elements.left = undefined;
+            this._elements.size--;
+            return removed;
+        } else if (value === this._elements.value) {
+            let removed = this._elements.value;
+            this._elements.value = this._elements.left.getMax();
+            this._elements.left.getNodeBeforeMax().right = undefined;
+            this._elements.size--;
+            return removed;
         } else if (value < this._elements.value && this._elements.left) {
+            this._elements.size--;
             return this._elements.left.remove(value);
         } else if (value > this._elements.value && this._elements.right) {
+            this._elements.size--;
             return this._elements.right.remove(value);
         }
-        return false;
     }
 
     getMax() {
         return !this._elements.right ? this._elements.value : this._elements.right.getMax();
+    }
+
+    getNodeBeforeMax() {
+        return !this._elements.right._elements.right ? this._elements : this._elements.right.getMax();
     }
 
     getMin() {

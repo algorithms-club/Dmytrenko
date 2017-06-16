@@ -77,8 +77,8 @@ describe.only('#binarySearchTree', function () {
         node.value.should.be.eql(12);
     });
 
-    it('should #add push element to a BinarySearchTree and check element\'s position', function () {
-        let bst = new algolib.BinarySearchTree(4);
+    it('should #remove return removed element from a BinarySearchTree', function () {
+        let bst = new algolib.BinarySearchTree(7);
 
         bst.add(3);
         bst.add(10);
@@ -89,14 +89,20 @@ describe.only('#binarySearchTree', function () {
         bst.add(16);
         bst.add(13);
         bst.add(22);
+        bst.add(-10);
+        bst.add(6);
         bst.remove(14);
-        bst.remove(22);
-        bst.remove(3);
+        let removed1 = bst.remove(22);
+        let removed2 = bst.remove(-10);
         bst.add(25);
+        let removed3 = bst.remove(7);
 
-        bst._elements.right._elements.right._elements.left._elements.right._elements.right._elements.value.should.be.eql(16);
-        // bst._elements.right._elements.right._elements.right._elements.value.should.be.eql(25);
-        // bst._elements.left._elements.value.should.be.eql(-1);
+        removed1.should.be.eql(22);
+        removed2.should.be.eql(-10);
+        removed3.should.be.eql(7);
+        bst._elements.value.should.be.eql(6);
+        bst._elements.right._elements.right._elements.right._elements.left._elements.value.should.be.eql(16);
+        bst._elements.right._elements.right._elements.right._elements.right._elements.value.should.be.eql(25);
     });
 
 });
