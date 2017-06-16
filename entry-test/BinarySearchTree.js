@@ -46,7 +46,7 @@ class BinarySearchTree {
         } else if (value === this._elements.value) {
             let removed = this._elements.value;
             this._elements.value = this._elements.left.getMax();
-            this._elements.left.getNodeBeforeMax().right = undefined;
+            this._elements.left._getNodeBeforeMax().right = undefined;
             this._elements.size--;
             return removed;
         } else if (value < this._elements.value && this._elements.left) {
@@ -62,7 +62,7 @@ class BinarySearchTree {
         return !this._elements.right ? this._elements.value : this._elements.right.getMax();
     }
 
-    getNodeBeforeMax() {
+    _getNodeBeforeMax() {
         return !this._elements.right._elements.right ? this._elements : this._elements.right.getMax();
     }
 

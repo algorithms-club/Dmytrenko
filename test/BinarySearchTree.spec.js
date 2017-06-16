@@ -2,12 +2,17 @@
 
 const algolib = require('../index.js');
 
-describe.only('#binarySearchTree', function () {
+describe('#binarySearchTree', function () {
 
     it('should create proper data structure ', function () {
         let bst = new algolib.BinarySearchTree();
 
         bst.add.should.be.instanceOf(Function);
+        bst.remove.should.be.instanceOf(Function);
+        bst.getMax.should.be.instanceOf(Function);
+        bst.getMin.should.be.instanceOf(Function);
+        bst.getNode.should.be.instanceOf(Function);
+        bst._getNodeBeforeMax.should.be.instanceOf(Function);
 
     });
 
